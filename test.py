@@ -4,8 +4,8 @@ from tokens import Tokenizer
 from train import training
 
 def result():
-    #create_dataset = geting_data()
-    #create_custom_token = Tokenizer.custom_tokenizer()
+    #geting_data()
+    #Tokenizer.custom_tokenizer()
     create_train = training()
     return (create_train)
 

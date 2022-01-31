@@ -9,7 +9,7 @@ def geting_data():
     for sample in tqdm(dataset['train']):
         sample = sample['text'].replace('\n', '')
         text_data.append(sample)
-        if len(text_data) == 565:
+        if len(text_data) == 564:
             # once we git the <1K mark, save to file
             with open(f'data/text.txt', 'w', encoding='utf-8') as fp:
                 fp.write('\n'.join(text_data))

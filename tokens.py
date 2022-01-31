@@ -15,12 +15,12 @@ class Tokenizer():
 
         tokenizer = ByteLevelBPETokenizer()
 
-        tokenizer.train(files=path, vocab_size=30_0, min_frequency=1,
+        tokenizer.train(files=path, vocab_size=10_0, min_frequency=2,
                         special_tokens=['<s>', '<pad>', '</s>', '<unk>', '<mask>'])
 
         #Our tokenizer is now ready, and we can save it file for later use:
 
-        #os.mkdir('./filiberto')
+        os.mkdir('./filiberto')
 
         tokenizer.save_model('filiberto')
 

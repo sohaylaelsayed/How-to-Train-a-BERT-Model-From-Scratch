@@ -11,11 +11,11 @@ from piplines import InitializeDataset
 def initialize_model():
 
     config = RobertaConfig(
-        vocab_size=30_0,  # we align this to the tokenizer vocab_size
-        max_position_embeddings=200,
-        hidden_size=300,
-        num_attention_heads=10,
-        num_hidden_layers=4,
+        vocab_size=10_0,  # we align this to the tokenizer vocab_size
+        max_position_embeddings= 100 ,
+        hidden_size=100,
+        num_attention_heads=5,
+        num_hidden_layers=3,
         type_vocab_size=1
     )
 
@@ -24,8 +24,7 @@ def initialize_model():
     return(model)
 
 def train_prep():
-
-    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    device = torch.device('cuda') 
     # and move our model over to the selected device
     model = initialize_model()
     model.to(device)
@@ -54,8 +53,7 @@ def training():
             attention_mask = batch['attention_mask'].to(device)
             labels = batch['labels'].to(device)
             # process
-            outputs = model(input_ids, attention_mask=attention_mask,
-                            labels=labels)
+            outputs = model(input_ids, attention_mask=attention_mask,labels=labels)
             # extract loss
             loss = outputs.loss
             # calculate loss for every parameter that needs grad update
